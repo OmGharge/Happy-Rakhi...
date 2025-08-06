@@ -2,22 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Happy Rakshabandhan Didi Pratiksha 💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: 'Baloo 2', cursive;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #ffeef8 0%, #e8f4fd 50%, #fff2e6 100%);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            touch-action: pan-y;
         }
 
         /* Floating background elements */
@@ -33,37 +39,24 @@
 
         .floating-emoji {
             position: absolute;
-            font-size: 2rem;
+            font-size: 1.5rem;
             animation: float 6s ease-in-out infinite;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
 
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ff69b4;
-            animation: confetti-fall 3s linear infinite;
-        }
-
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Page container */
+        /* Page container - Mobile First */
         .page {
             display: none;
             min-height: 100vh;
-            padding: 2rem;
+            padding: 1rem;
             position: relative;
             z-index: 2;
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 0.8s ease-in-out;
         }
 
         .page.active {
@@ -74,143 +67,174 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Common styles */
+        /* Container - Mobile First */
         .container {
-            max-width: 800px;
+            max-width: 100%;
             width: 100%;
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
-            padding: 3rem 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
+        /* Typography - Mobile First */
         h1 {
-            font-size: 3rem;
+            font-size: 1.8rem;
             color: #d63384;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #8b5cf6;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Welcome title */
+        .welcome-title {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #ff69b4, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: bounce 2s ease-in-out infinite;
+            line-height: 1.2;
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
         }
 
-        h2 {
-            font-size: 2.5rem;
-            color: #8b5cf6;
-            margin-bottom: 1.5rem;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #6b7280;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
+        /* Buttons - Mobile Optimized */
         .next-btn {
             background: linear-gradient(135deg, #ff69b4, #8b5cf6);
             color: white;
             border: none;
             padding: 1rem 2rem;
             border-radius: 50px;
-            font-size: 1.1rem;
-            font-family: 'Baloo 2', cursive;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
-            margin-top: 2rem;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+            margin-top: 1.5rem;
+            min-height: 56px;
+            min-width: 200px;
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
-        .next-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.4);
+        .next-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
         }
 
         /* Music controls */
         .music-controls {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 50px;
-            padding: 10px 20px;
+            border-radius: 25px;
+            padding: 8px 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .music-btn {
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
             color: #8b5cf6;
+            padding: 5px;
+            min-width: 30px;
+            min-height: 30px;
+            touch-action: manipulation;
         }
 
-        /* Welcome page specific */
-        .welcome-title {
-            font-size: 4rem;
-            background: linear-gradient(135deg, #ff69b4, #8b5cf6, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: rainbow 3s ease-in-out infinite;
+        /* Emoji sections */
+        .emoji-section {
+            font-size: 2rem;
+            margin: 1rem 0;
+            line-height: 1.2;
         }
 
-        @keyframes rainbow {
-            0%, 100% { filter: hue-rotate(0deg); }
-            50% { filter: hue-rotate(90deg); }
-        }
-
-
-
-        /* Promise wall */
+        /* Promise wall - Mobile First */
         .promise-list {
             text-align: left;
-            max-width: 600px;
+            width: 100%;
         }
 
         .promise-item {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-left: 5px solid #ff69b4;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 0.8rem 0;
+            border-left: 4px solid #ff69b4;
             opacity: 0;
             animation: slideIn 1s ease-out forwards;
         }
 
-        .promise-item:nth-child(2) { animation-delay: 0.5s; }
-        .promise-item:nth-child(3) { animation-delay: 1s; }
-        .promise-item:nth-child(4) { animation-delay: 1.5s; }
-        .promise-item:nth-child(5) { animation-delay: 2s; }
+        .promise-item:nth-child(1) { animation-delay: 0.2s; }
+        .promise-item:nth-child(2) { animation-delay: 0.4s; }
+        .promise-item:nth-child(3) { animation-delay: 0.6s; }
+        .promise-item:nth-child(4) { animation-delay: 0.8s; }
+        .promise-item:nth-child(5) { animation-delay: 1s; }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
+            from { opacity: 0; transform: translateX(-30px); }
             to { opacity: 1; transform: translateX(0); }
         }
 
-        /* Gift reveal */
+        .promise-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .promise-item p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        /* Gift reveal - Mobile First */
         .gift-box {
-            width: 200px;
-            height: 200px;
+            width: 120px;
+            height: 120px;
             background: linear-gradient(135deg, #ff69b4, #8b5cf6);
-            border-radius: 20px;
-            margin: 2rem auto;
+            border-radius: 15px;
+            margin: 1.5rem auto;
             position: relative;
             cursor: pointer;
             transition: all 0.3s ease;
             animation: giftPulse 2s ease-in-out infinite;
+            touch-action: manipulation;
         }
 
         @keyframes giftPulse {
@@ -218,7 +242,7 @@
             50% { transform: scale(1.05); }
         }
 
-        .gift-box:hover {
+        .gift-box:active {
             transform: scale(1.1);
         }
 
@@ -228,12 +252,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 4rem;
+            font-size: 3rem;
         }
 
         .gift-content {
             display: none;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -241,27 +265,62 @@
             display: block;
         }
 
-        /* Letter page */
+        .gift-content h3 {
+            font-size: 1.3rem;
+            color: #ff69b4;
+            margin-bottom: 1rem;
+        }
+
+        .gift-content .gift-message {
+            background: linear-gradient(135deg, #ffeef8, #e8f4fd);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+
+        .gift-content .gift-message h2 {
+            color: #8b5cf6;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .gift-content .gift-message p {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-top: 0.8rem;
+        }
+
+        /* Letter page - Mobile First */
         .letter {
             background: #fff;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             text-align: left;
-            line-height: 2;
-            font-family: 'Quicksand', sans-serif;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .letter-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: #d63384;
         }
 
-        /* Final page */
+        .letter-header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .letter p {
+            text-align: left;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* Final page heart balloons */
         .heart-balloon {
-            font-size: 3rem;
+            font-size: 2rem;
             animation: floatUp 4s ease-in-out infinite;
             position: absolute;
         }
@@ -270,366 +329,88 @@
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(-50px) rotate(180deg); opacity: 0; }
         }
 
-        /* Mobile-first responsive design */
-        @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-                background-attachment: scroll;
-                -webkit-text-size-adjust: 100%;
-            }
-
+        /* Desktop styles */
+        @media (min-width: 768px) {
             .page {
-                padding: 1rem;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                padding: 2rem;
             }
 
             .container {
-                padding: 2rem 1.5rem;
-                margin: 0.5rem;
-                border-radius: 20px;
-                max-width: 95%;
-                min-height: auto;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                max-width: 700px;
+                padding: 3rem 2rem;
+                border-radius: 30px;
             }
 
             h1, .welcome-title {
+                font-size: 3rem;
+            }
+
+            h2 {
                 font-size: 2.2rem;
-                line-height: 1.2;
-                margin-bottom: 1rem;
-                text-align: center;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-                line-height: 1.3;
-                margin-bottom: 1rem;
-                text-align: center;
             }
 
             p {
-                font-size: 1.1rem;
-                line-height: 1.6;
-                margin-bottom: 1rem;
-                text-align: center;
-            }
-
-
-
-            .promise-list {
-                max-width: 100%;
-            }
-
-            .promise-item {
-                padding: 0.8rem;
-                margin: 0.4rem 0;
-                border-radius: 8px;
-                border-left-width: 3px;
-            }
-
-            .promise-item h3 {
-                font-size: 1rem;
-                margin-bottom: 0.4rem;
-                line-height: 1.3;
-            }
-
-            .promise-item p {
-                font-size: 0.85rem;
-                text-align: left;
-                margin-bottom: 0;
-            }
-
-            .gift-box {
-                width: 130px;
-                height: 130px;
-                margin: 1rem auto;
-                border-radius: 15px;
-            }
-
-            .gift-box::before {
-                font-size: 2.8rem;
-            }
-
-            .letter {
-                padding: 1.2rem;
-                border-radius: 12px;
-                font-size: 0.9rem;
-                line-height: 1.6;
-                max-width: 100%;
-            }
-
-            .letter-header {
-                margin-bottom: 1.5rem;
-            }
-
-            .letter-header h2 {
                 font-size: 1.2rem;
-                margin-bottom: 0.5rem;
             }
 
-            .letter p {
-                text-align: left;
-                margin-bottom: 1rem;
+            .emoji-section {
+                font-size: 3.5rem;
             }
 
             .next-btn {
+                font-size: 1.1rem;
                 padding: 1.2rem 2.5rem;
-                font-size: 1.1rem;
-                margin-top: 2rem;
-                border-radius: 50px;
-                min-height: 56px;
-                min-width: 200px;
-                touch-action: manipulation;
-                -webkit-tap-highlight-color: transparent;
-                cursor: pointer;
-                user-select: none;
-                -webkit-user-select: none;
-                display: inline-block;
-                text-align: center;
-                line-height: 1.2;
-            }
-
-            .next-btn:active {
-                transform: translateY(-2px);
-                box-shadow: 0 12px 25px rgba(255, 105, 180, 0.5);
-            }
-
-            .music-controls {
-                top: 15px;
-                right: 15px;
-                padding: 10px 15px;
-                border-radius: 20px;
-                backdrop-filter: blur(15px);
-            }
-
-            .music-controls span {
-                display: none;
-            }
-
-            .music-btn {
-                font-size: 1.3rem;
-                padding: 8px;
-                min-width: 36px;
-                min-height: 36px;
-                border-radius: 50%;
-                touch-action: manipulation;
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            .floating-emoji {
-                font-size: 1.3rem;
-                opacity: 0.5;
-            }
-
-            .confetti {
-                width: 8px;
-                height: 8px;
-            }
-
-            /* Mobile emoji adjustments */
-            .page div[style*="font-size: 4rem"] {
-                font-size: 2.5rem !important;
-                margin: 1rem 0 !important;
-                line-height: 1.2 !important;
-            }
-
-            .page div[style*="font-size: 3rem"] {
-                font-size: 2rem !important;
-                margin: 1rem 0 !important;
-                line-height: 1.2 !important;
-            }
-
-            /* Gift content mobile optimization */
-            .gift-content h3 {
-                font-size: 1.3rem !important;
-                margin-bottom: 0.8rem !important;
-            }
-
-            .gift-content div[style*="background: linear-gradient"] {
-                padding: 1.2rem !important;
-                border-radius: 12px !important;
-                margin: 0.8rem 0 !important;
-            }
-
-            .gift-content h2 {
-                font-size: 1.2rem !important;
-                margin-bottom: 0.8rem !important;
-            }
-
-            /* Mobile heart balloons */
-            .heart-balloon {
-                font-size: 1.8rem;
-            }
-
-            /* Better touch targets */
-            button, .gift-box {
-                cursor: pointer;
-                touch-action: manipulation;
-                -webkit-tap-highlight-color: transparent;
-            }
-
-            /* Prevent zoom on input focus */
-            input, textarea, select {
-                font-size: 16px;
-            }
-        }
-
-        /* Small mobile screens */
-        @media (max-width: 480px) {
-            .page {
-                padding: 0.5rem;
-            }
-
-            .container {
-                padding: 1.5rem 1rem;
-                margin: 0.3rem;
-                border-radius: 15px;
-                max-width: 96%;
-            }
-
-            h1, .welcome-title {
-                font-size: 1.8rem;
-                margin-bottom: 0.8rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-                margin-bottom: 0.8rem;
-            }
-
-            p {
-                font-size: 1rem;
-                margin-bottom: 0.8rem;
-            }
-
-
-
-            .promise-item {
-                padding: 0.6rem;
-                margin: 0.3rem 0;
-            }
-
-            .promise-item h3 {
-                font-size: 0.95rem;
-            }
-
-            .promise-item p {
-                font-size: 0.8rem;
             }
 
             .gift-box {
-                width: 110px;
-                height: 110px;
+                width: 180px;
+                height: 180px;
             }
 
             .gift-box::before {
-                font-size: 2.5rem;
+                font-size: 4rem;
             }
 
             .letter {
-                padding: 0.8rem;
-                font-size: 0.85rem;
-                line-height: 1.5;
-            }
-
-            .letter-header h2 {
+                padding: 2.5rem;
                 font-size: 1.1rem;
-            }
-
-            .next-btn {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-                margin-top: 1.5rem;
-                min-height: 52px;
-                min-width: 180px;
-            }
-
-            .music-controls {
-                top: 10px;
-                right: 10px;
-                padding: 8px 12px;
-            }
-
-            .music-btn {
-                font-size: 1.2rem;
-                min-width: 32px;
-                min-height: 32px;
-            }
-
-            /* Extra small screen emoji adjustments */
-            .page div[style*="font-size: 4rem"] {
-                font-size: 2rem !important;
-                margin: 0.6rem 0 !important;
-            }
-
-            .page div[style*="font-size: 3rem"] {
-                font-size: 1.6rem !important;
-                margin: 0.6rem 0 !important;
             }
 
             .floating-emoji {
-                font-size: 1.1rem;
+                font-size: 2rem;
             }
 
-            .heart-balloon {
+            .music-controls {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+            }
+
+            .music-btn {
                 font-size: 1.5rem;
             }
         }
 
-        /* Very small screens */
-        @media (max-width: 360px) {
+        /* Large desktop */
+        @media (min-width: 1024px) {
             .container {
-                padding: 1.2rem 0.8rem;
+                max-width: 800px;
             }
 
             h1, .welcome-title {
-                font-size: 1.6rem;
+                font-size: 4rem;
             }
 
             h2 {
-                font-size: 1.3rem;
-            }
-
-            p {
-                font-size: 0.95rem;
-            }
-
-            .next-btn {
-                padding: 0.9rem 1.8rem;
-                font-size: 0.95rem;
-                min-height: 48px;
-                min-width: 160px;
-            }
-
-            .gift-box {
-                width: 120px;
-                height: 120px;
-            }
-
-            .gift-box::before {
                 font-size: 2.5rem;
             }
 
-            .letter {
-                padding: 1rem;
-                font-size: 0.9rem;
+            .emoji-section {
+                font-size: 4rem;
             }
-        }
-
-        /* Typing effect */
-        .typing-text {
-            border-right: 2px solid #ff69b4;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: #ff69b4; }
         }
     </style>
 </head>
@@ -640,7 +421,6 @@
     <!-- Music controls -->
     <div class="music-controls">
         <button class="music-btn" id="musicToggle">🎵</button>
-        <span style="font-size: 0.9rem; color: #8b5cf6; margin-left: 10px;">Soft Music</span>
     </div>
 
     <!-- Page 1: Welcome -->
@@ -648,10 +428,10 @@
         <div class="container">
             <h1 class="welcome-title">Happy Rakshabandhan</h1>
             <h2 style="color: #ff69b4; margin: 1rem 0;">Didi Pratiksha! 🎀💖</h2>
-            <p style="font-size: 1.5rem; color: #8b5cf6;">
+            <p style="font-size: 1.2rem; color: #8b5cf6;">
                 From your loving little brother Om 🥺✨
             </p>
-            <div style="font-size: 4rem; margin: 2rem 0; animation: bounce 2s ease-in-out infinite;">
+            <div class="emoji-section">
                 🌈💝🎉🩷🎀
             </div>
             <p style="color: #6b7280;">
@@ -663,8 +443,6 @@
             </button>
         </div>
     </div>
-
-
 
     <!-- Page 2: Promise Wall -->
     <div class="page" id="page2">
@@ -709,20 +487,20 @@
     <div class="page" id="page3">
         <div class="container">
             <h2>A Special Gift for You! 🎁✨</h2>
-            <p>Click on the gift box to reveal your surprise, Didi! 🥺💖</p>
+            <p>Tap on the gift box to reveal your surprise, Didi! 🥺💖</p>
             
             <div class="gift-box" id="giftBox" onclick="revealGift()"></div>
             
             <div class="gift-content" id="giftContent">
-                <h3 style="color: #ff69b4; font-size: 2rem; margin-bottom: 1rem;">🌟 Your Gift is... 🌟</h3>
-                <div style="background: linear-gradient(135deg, #ffeef8, #e8f4fd); padding: 2rem; border-radius: 20px; margin: 1rem 0;">
-                    <h2 style="color: #8b5cf6;">A Promise of Forever Love! 💝</h2>
-                    <p style="font-size: 1.3rem; color: #6b7280; margin-top: 1rem;">
+                <h3>🌟 Your Gift is... 🌟</h3>
+                <div class="gift-message">
+                    <h2>A Promise of Forever Love! 💝</h2>
+                    <p>
                         My gift to you is not something material, but something eternal - 
                         my unconditional love, respect, and gratitude that will last forever! 
                         You are the best sister anyone could ask for! 🥺💕
                     </p>
-                    <div style="font-size: 3rem; margin: 1rem 0;">
+                    <div class="emoji-section">
                         💖🌈✨🎀🌟💝🥺💕
                     </div>
                 </div>
@@ -757,7 +535,7 @@
                 
                 <p style="text-align: center; margin-top: 2rem;"><strong>With all my love and warm hugs,<br>Your loving brother,<br>Om 🥺❤️</strong></p>
                 
-                <div style="text-align: center; font-size: 2rem; margin-top: 2rem;">
+                <div class="emoji-section">
                     💕🌈✨🎀💖🌟💝🥺
                 </div>
             </div>
@@ -771,26 +549,26 @@
     <!-- Page 5: Final Thank You -->
     <div class="page" id="page5">
         <div class="container">
-            <h1 style="color: #ff69b4; margin-bottom: 2rem;">Forever Your Om 🥺❤️</h1>
+            <h1 style="color: #ff69b4; margin-bottom: 1.5rem;">Forever Your Om 🥺❤️</h1>
             
-            <div style="font-size: 4rem; margin: 2rem 0; animation: bounce 2s ease-in-out infinite;">
+            <div class="emoji-section">
                 🎈💕🌟✨🎀💖🌈
             </div>
             
-            <p style="font-size: 1.5rem; color: #8b5cf6; margin-bottom: 2rem;">
+            <p style="font-size: 1.2rem; color: #8b5cf6; margin-bottom: 1.5rem;">
                 Thank you for being the most wonderful sister in the universe! 🌟
             </p>
             
-            <div style="background: rgba(255, 255, 255, 0.8); padding: 2rem; border-radius: 20px; margin: 2rem 0;">
+            <div style="background: rgba(255, 255, 255, 0.8); padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0;">
                 <h3 style="color: #ff69b4; margin-bottom: 1rem;">This Rakshabandhan and Always...</h3>
-                <p style="font-size: 1.2rem; color: #6b7280;">
+                <p style="font-size: 1rem; color: #6b7280;">
                     May your life be filled with endless happiness, success, and love! 
                     May all your dreams come true, and may you always have reasons to smile! 
                     You deserve all the beautiful things in this world, Didi! 💝✨
                 </p>
             </div>
             
-            <div style="font-size: 3rem; margin: 2rem 0;">
+            <div class="emoji-section">
                 🥺💕 I LOVE YOU SO MUCH DIDI! 💕🥺
             </div>
             
@@ -811,7 +589,7 @@
             const emojis = ['🎀', '💖', '🌟', '✨', '🩷', '🌈', '💝', '🎉'];
             
             // Create floating emojis
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 10; i++) {
                 const emoji = document.createElement('div');
                 emoji.className = 'floating-emoji';
                 emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
@@ -820,23 +598,13 @@
                 emoji.style.animationDelay = Math.random() * 6 + 's';
                 container.appendChild(emoji);
             }
-            
-            // Create confetti
-            for (let i = 0; i < 20; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.backgroundColor = ['#ff69b4', '#8b5cf6', '#06b6d4', '#f59e0b', '#10b981'][Math.floor(Math.random() * 5)];
-                confetti.style.animationDelay = Math.random() * 3 + 's';
-                container.appendChild(confetti);
-            }
         }
 
         // Create heart balloons for final page
         function createHeartBalloons() {
-            if (currentPage === 6) {
+            if (currentPage === 5) {
                 const container = document.getElementById('floatingElements');
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < 8; i++) {
                     setTimeout(() => {
                         const heart = document.createElement('div');
                         heart.className = 'heart-balloon';
@@ -846,7 +614,9 @@
                         container.appendChild(heart);
                         
                         setTimeout(() => {
-                            heart.remove();
+                            if (heart.parentNode) {
+                                heart.remove();
+                            }
                         }, 4000);
                     }, i * 500);
                 }
@@ -861,7 +631,7 @@
                 document.getElementById(`page${currentPage}`).classList.add('active');
                 
                 // Always scroll to top when new page loads
-                window.scrollTo(0, 0);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
                 
                 if (currentPage === 5) {
                     createHeartBalloons();
@@ -876,7 +646,7 @@
             document.getElementById(`page${currentPage}`).classList.add('active');
             
             // Always scroll to top when restarting
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             
             // Reset gift reveal
             document.getElementById('giftContent').classList.remove('revealed');
@@ -885,8 +655,11 @@
 
         // Reveal gift
         function revealGift() {
-            document.getElementById('giftContent').classList.add('revealed');
-            document.getElementById('giftNextBtn').style.display = 'inline-block';
+            const giftContent = document.getElementById('giftContent');
+            const giftNextBtn = document.getElementById('giftNextBtn');
+            
+            giftContent.classList.add('revealed');
+            giftNextBtn.style.display = 'inline-flex';
             
             // Add celebration effect
             const giftBox = document.getElementById('giftBox');
@@ -894,7 +667,6 @@
             
             // Smooth scroll to gift content after a short delay
             setTimeout(() => {
-                const giftContent = document.getElementById('giftContent');
                 giftContent.scrollIntoView({ 
                     behavior: 'smooth', 
                     block: 'start' 
@@ -902,7 +674,7 @@
             }, 500);
         }
 
-        // Music toggle (Note: Actual audio playback is not supported in this environment)
+        // Music toggle
         function toggleMusic() {
             const btn = document.getElementById('musicToggle');
             musicPlaying = !musicPlaying;
@@ -917,66 +689,55 @@
             // Add music toggle functionality
             document.getElementById('musicToggle').addEventListener('click', toggleMusic);
             
-            // Add keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowRight' || e.key === ' ') {
-                    if (currentPage < totalPages) {
-                        nextPage();
-                    }
-                } else if (e.key === 'ArrowLeft') {
-                    if (currentPage > 1) {
-                        document.getElementById(`page${currentPage}`).classList.remove('active');
-                        currentPage--;
-                        document.getElementById(`page${currentPage}`).classList.add('active');
-                        // Scroll to top when going back
-                        window.scrollTo(0, 0);
-                    }
-                }
-            });
+            // Prevent default touch behaviors that might interfere
+            document.addEventListener('touchstart', function(e) {
+                // Allow normal touch behavior
+            }, { passive: true });
+            
+            document.addEventListener('touchmove', function(e) {
+                // Allow normal scrolling
+            }, { passive: true });
         });
 
-        // Add touch swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let touchStartY = 0;
-        let touchEndY = 0;
+        // Simple swipe detection for mobile
+        let startX = 0;
+        let startY = 0;
 
         document.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
         }, { passive: true });
 
         document.addEventListener('touchend', function(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            touchEndY = e.changedTouches[0].screenY;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            const deltaX = touchEndX - touchStartX;
-            const deltaY = touchEndY - touchStartY;
+            if (!startX || !startY) return;
             
-            // Only handle horizontal swipes if they're more significant than vertical
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-                if (deltaX < -50) {
+            let endX = e.changedTouches[0].clientX;
+            let endY = e.changedTouches[0].clientY;
+            
+            let diffX = startX - endX;
+            let diffY = startY - endY;
+            
+            // Only handle horizontal swipes that are more significant than vertical
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0) {
                     // Swipe left - next page
                     if (currentPage < totalPages) {
                         nextPage();
                     }
-                }
-                if (deltaX > 50) {
+                } else {
                     // Swipe right - previous page
                     if (currentPage > 1) {
                         document.getElementById(`page${currentPage}`).classList.remove('active');
                         currentPage--;
                         document.getElementById(`page${currentPage}`).classList.add('active');
-                        // Scroll to top when swiping back
-                        window.scrollTo(0, 0);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
                 }
             }
-        }
+            
+            startX = 0;
+            startY = 0;
+        }, { passive: true });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96af4629f0a6178e',t:'MTc1NDQ5MTA2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96af53936734f5bd',t:'MTc1NDQ5MTYxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
