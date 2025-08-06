@@ -172,43 +172,7 @@
             50% { filter: hue-rotate(90deg); }
         }
 
-        /* Memory gallery */
-        .memory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
 
-        .memory-card {
-            background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transform: rotate(-2deg);
-            transition: all 0.3s ease;
-        }
-
-        .memory-card:nth-child(even) {
-            transform: rotate(2deg);
-        }
-
-        .memory-card:hover {
-            transform: rotate(0deg) scale(1.05);
-        }
-
-        .photo-frame {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #ffeef8, #e8f4fd);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            border: 3px solid #ff69b4;
-        }
 
         /* Promise wall */
         .promise-list {
@@ -309,29 +273,358 @@
             100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
 
-        /* Responsive design */
+        /* Mobile-first responsive design */
         @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+                background-attachment: fixed;
+            }
+
+            .page {
+                padding: 0.5rem;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             .container {
-                padding: 2rem 1rem;
-                margin: 1rem;
+                padding: 1.2rem 0.8rem;
+                margin: 0.2rem;
+                border-radius: 15px;
+                max-width: 98%;
+                min-height: auto;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             }
 
             h1, .welcome-title {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
+                line-height: 1.1;
+                margin-bottom: 0.8rem;
+                text-align: center;
             }
 
             h2 {
-                font-size: 2rem;
+                font-size: 1.4rem;
+                line-height: 1.2;
+                margin-bottom: 0.8rem;
+                text-align: center;
             }
 
-            .memory-grid {
-                grid-template-columns: 1fr;
+            p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 0.8rem;
+                text-align: center;
+            }
+
+
+
+            .promise-list {
+                max-width: 100%;
+            }
+
+            .promise-item {
+                padding: 0.8rem;
+                margin: 0.4rem 0;
+                border-radius: 8px;
+                border-left-width: 3px;
+            }
+
+            .promise-item h3 {
+                font-size: 1rem;
+                margin-bottom: 0.4rem;
+                line-height: 1.3;
+            }
+
+            .promise-item p {
+                font-size: 0.85rem;
+                text-align: left;
+                margin-bottom: 0;
+            }
+
+            .gift-box {
+                width: 130px;
+                height: 130px;
+                margin: 1rem auto;
+                border-radius: 15px;
+            }
+
+            .gift-box::before {
+                font-size: 2.8rem;
+            }
+
+            .letter {
+                padding: 1.2rem;
+                border-radius: 12px;
+                font-size: 0.9rem;
+                line-height: 1.6;
+                max-width: 100%;
+            }
+
+            .letter-header {
+                margin-bottom: 1.5rem;
+            }
+
+            .letter-header h2 {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .letter p {
+                text-align: left;
+                margin-bottom: 1rem;
+            }
+
+            .next-btn {
+                padding: 0.9rem 1.8rem;
+                font-size: 0.95rem;
+                margin-top: 1.2rem;
+                border-radius: 30px;
+                min-height: 48px;
+                min-width: 120px;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .next-btn:active {
+                transform: translateY(-1px);
+                box-shadow: 0 8px 15px rgba(255, 105, 180, 0.4);
+            }
+
+            .music-controls {
+                top: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                border-radius: 20px;
+                backdrop-filter: blur(15px);
+            }
+
+            .music-controls span {
+                display: none;
+            }
+
+            .music-btn {
+                font-size: 1.3rem;
+                padding: 8px;
+                min-width: 36px;
+                min-height: 36px;
+                border-radius: 50%;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .floating-emoji {
+                font-size: 1.3rem;
+                opacity: 0.5;
+            }
+
+            .confetti {
+                width: 8px;
+                height: 8px;
+            }
+
+            /* Mobile-specific emoji adjustments */
+            .page div[style*="font-size: 4rem"] {
+                font-size: 2.2rem !important;
+                margin: 0.8rem 0 !important;
+                line-height: 1.2 !important;
+            }
+
+            .page div[style*="font-size: 3rem"] {
+                font-size: 1.8rem !important;
+                margin: 0.8rem 0 !important;
+                line-height: 1.2 !important;
+            }
+
+            .page div[style*="font-size: 2rem"] {
+                font-size: 1.5rem !important;
+                margin: 0.8rem 0 !important;
+            }
+
+            .page p[style*="font-size: 1.5rem"] {
+                font-size: 1.1rem !important;
+            }
+
+            .page p[style*="font-size: 1.2rem"] {
+                font-size: 1rem !important;
+            }
+
+            .page p[style*="font-size: 1.3rem"] {
+                font-size: 1.05rem !important;
+            }
+
+            /* Gift content mobile optimization */
+            .gift-content h3 {
+                font-size: 1.3rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .gift-content div[style*="background: linear-gradient"] {
+                padding: 1.2rem !important;
+                border-radius: 12px !important;
+                margin: 0.8rem 0 !important;
+            }
+
+            .gift-content h2 {
+                font-size: 1.2rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            /* Mobile heart balloons */
+            .heart-balloon {
+                font-size: 1.8rem;
+            }
+
+            /* Better touch targets */
+            button, .gift-box {
+                cursor: pointer;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            /* Prevent zoom on input focus */
+            input, textarea, select {
+                font-size: 16px;
+            }
+        }
+
+        /* Small mobile screens */
+        @media (max-width: 480px) {
+            .page {
+                padding: 0.3rem;
+            }
+
+            .container {
+                padding: 1rem 0.6rem;
+                margin: 0.1rem;
+                border-radius: 12px;
+                max-width: 99%;
+            }
+
+            h1, .welcome-title {
+                font-size: 1.6rem;
+                margin-bottom: 0.6rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+                margin-bottom: 0.6rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+                margin-bottom: 0.6rem;
+            }
+
+
+
+            .promise-item {
+                padding: 0.6rem;
+                margin: 0.3rem 0;
+            }
+
+            .promise-item h3 {
+                font-size: 0.95rem;
+            }
+
+            .promise-item p {
+                font-size: 0.8rem;
+            }
+
+            .gift-box {
+                width: 110px;
+                height: 110px;
+            }
+
+            .gift-box::before {
+                font-size: 2.5rem;
+            }
+
+            .letter {
+                padding: 0.8rem;
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+
+            .letter-header h2 {
+                font-size: 1.1rem;
+            }
+
+            .next-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                margin-top: 1rem;
+                min-height: 44px;
             }
 
             .music-controls {
                 top: 10px;
                 right: 10px;
-                padding: 8px 15px;
+                padding: 8px 12px;
+            }
+
+            .music-btn {
+                font-size: 1.2rem;
+                min-width: 32px;
+                min-height: 32px;
+            }
+
+            /* Extra small screen emoji adjustments */
+            .page div[style*="font-size: 4rem"] {
+                font-size: 2rem !important;
+                margin: 0.6rem 0 !important;
+            }
+
+            .page div[style*="font-size: 3rem"] {
+                font-size: 1.6rem !important;
+                margin: 0.6rem 0 !important;
+            }
+
+            .floating-emoji {
+                font-size: 1.1rem;
+            }
+
+            .heart-balloon {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 360px) {
+            .container {
+                padding: 0.8rem 0.5rem;
+            }
+
+            h1, .welcome-title {
+                font-size: 1.4rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            p {
+                font-size: 0.85rem;
+            }
+
+            .next-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .gift-box {
+                width: 100px;
+                height: 100px;
+            }
+
+            .gift-box::before {
+                font-size: 2.2rem;
+            }
+
+            .letter {
+                padding: 0.6rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -378,46 +671,10 @@
         </div>
     </div>
 
-    <!-- Page 2: Memory Gallery -->
-    <div class="page" id="page2">
-        <div class="container">
-            <h2>Our Beautiful Memories 📸💕</h2>
-            <p>Every moment with you is a treasure, Didi! 🥺💖</p>
-            
-            <div class="memory-grid">
-                <div class="memory-card">
-                    <div class="photo-frame">👫💕</div>
-                    <h3 style="color: #ff69b4; margin-bottom: 0.5rem;">Childhood Days</h3>
-                    <p style="font-size: 1rem;">Remember when you used to protect me from everything? You were my superhero! 🦸‍♀️✨</p>
-                </div>
-                
-                <div class="memory-card">
-                    <div class="photo-frame">🎂🎉</div>
-                    <h3 style="color: #8b5cf6; margin-bottom: 0.5rem;">Birthday Celebrations</h3>
-                    <p style="font-size: 1rem;">All those birthday surprises you planned for me... You made every day special! 🥳💝</p>
-                </div>
-                
-                <div class="memory-card">
-                    <div class="photo-frame">📚💪</div>
-                    <h3 style="color: #06b6d4; margin-bottom: 0.5rem;">Study Sessions</h3>
-                    <p style="font-size: 1rem;">Thank you for helping me with homework and being my study buddy! 🤓📖</p>
-                </div>
-                
-                <div class="memory-card">
-                    <div class="photo-frame">🍕🎮</div>
-                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">Fun Times</h3>
-                    <p style="font-size: 1rem;">Movie nights, games, and endless laughter... Those were the best times! 😄🎬</p>
-                </div>
-            </div>
-            
-            <button class="next-btn" onclick="nextPage()">
-                More Love Ahead 💕 →
-            </button>
-        </div>
-    </div>
 
-    <!-- Page 3: Promise Wall -->
-    <div class="page" id="page3">
+
+    <!-- Page 2: Promise Wall -->
+    <div class="page" id="page2">
         <div class="container">
             <h2>My Promises to You 🤝💖</h2>
             <p>These are not just words, but promises from my heart, Didi! 💝</p>
@@ -455,8 +712,8 @@
         </div>
     </div>
 
-    <!-- Page 4: Gift Reveal -->
-    <div class="page" id="page4">
+    <!-- Page 3: Gift Reveal -->
+    <div class="page" id="page3">
         <div class="container">
             <h2>A Special Gift for You! 🎁✨</h2>
             <p>Click on the gift box to reveal your surprise, Didi! 🥺💖</p>
@@ -484,8 +741,8 @@
         </div>
     </div>
 
-    <!-- Page 5: Letter -->
-    <div class="page" id="page5">
+    <!-- Page 4: Letter -->
+    <div class="page" id="page4">
         <div class="container">
             <div class="letter">
                 <div class="letter-header">
@@ -518,8 +775,8 @@
         </div>
     </div>
 
-    <!-- Page 6: Final Thank You -->
-    <div class="page" id="page6">
+    <!-- Page 5: Final Thank You -->
+    <div class="page" id="page5">
         <div class="container">
             <h1 style="color: #ff69b4; margin-bottom: 2rem;">Forever Your Om 🥺❤️</h1>
             
@@ -552,7 +809,7 @@
 
     <script>
         let currentPage = 1;
-        const totalPages = 6;
+        const totalPages = 5;
         let musicPlaying = false;
 
         // Create floating elements
@@ -610,7 +867,10 @@
                 currentPage++;
                 document.getElementById(`page${currentPage}`).classList.add('active');
                 
-                if (currentPage === 6) {
+                // Always scroll to top when new page loads
+                window.scrollTo(0, 0);
+                
+                if (currentPage === 5) {
                     createHeartBalloons();
                 }
             }
@@ -621,6 +881,9 @@
             document.getElementById(`page${currentPage}`).classList.remove('active');
             currentPage = 1;
             document.getElementById(`page${currentPage}`).classList.add('active');
+            
+            // Always scroll to top when restarting
+            window.scrollTo(0, 0);
             
             // Reset gift reveal
             document.getElementById('giftContent').classList.remove('revealed');
@@ -635,6 +898,15 @@
             // Add celebration effect
             const giftBox = document.getElementById('giftBox');
             giftBox.style.animation = 'bounce 0.5s ease-in-out 3';
+            
+            // Smooth scroll to gift content after a short delay
+            setTimeout(() => {
+                const giftContent = document.getElementById('giftContent');
+                giftContent.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 500);
         }
 
         // Music toggle (Note: Actual audio playback is not supported in this environment)
@@ -663,6 +935,8 @@
                         document.getElementById(`page${currentPage}`).classList.remove('active');
                         currentPage--;
                         document.getElementById(`page${currentPage}`).classList.add('active');
+                        // Scroll to top when going back
+                        window.scrollTo(0, 0);
                     }
                 }
             });
@@ -694,10 +968,11 @@
                     document.getElementById(`page${currentPage}`).classList.remove('active');
                     currentPage--;
                     document.getElementById(`page${currentPage}`).classList.add('active');
+                    // Scroll to top when swiping back
+                    window.scrollTo(0, 0);
                 }
             }
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ac0b19c2d27ea9',t:'MTc1NDQ1NzE4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ae17c0c749ccbb',t:'MTc1NDQ3ODY3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
