@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Rakshabandhan Didi Pratiksha 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Baloo 2', cursive;
+            background: linear-gradient(135deg, #ffeef8 0%, #e8f4fd 50%, #fff2e6 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating background elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff69b4;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Page container */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .page.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Common styles */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #d63384;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #8b5cf6;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #ff69b4, #8b5cf6);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: 'Baloo 2', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+            margin-top: 2rem;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.4);
+        }
+
+        /* Music controls */
+        .music-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 10px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #8b5cf6;
+        }
+
+        /* Welcome page specific */
+        .welcome-title {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #ff69b4, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow 3s ease-in-out infinite;
+        }
+
+        @keyframes rainbow {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(90deg); }
+        }
+
+        /* Memory gallery */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .memory-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+
+        .memory-card:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .memory-card:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #ffeef8, #e8f4fd);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            border: 3px solid #ff69b4;
+        }
+
+        /* Promise wall */
+        .promise-list {
+            text-align: left;
+            max-width: 600px;
+        }
+
+        .promise-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #ff69b4;
+            opacity: 0;
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .promise-item:nth-child(2) { animation-delay: 0.5s; }
+        .promise-item:nth-child(3) { animation-delay: 1s; }
+        .promise-item:nth-child(4) { animation-delay: 1.5s; }
+        .promise-item:nth-child(5) { animation-delay: 2s; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Gift reveal */
+        .gift-box {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #ff69b4, #8b5cf6);
+            border-radius: 20px;
+            margin: 2rem auto;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: giftPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes giftPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1);
+        }
+
+        .gift-box::before {
+            content: '🎁';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+        }
+
+        .gift-content {
+            display: none;
+            margin-top: 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .gift-content.revealed {
+            display: block;
+        }
+
+        /* Letter page */
+        .letter {
+            background: #fff;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            text-align: left;
+            line-height: 2;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #d63384;
+        }
+
+        /* Final page */
+        .heart-balloon {
+            font-size: 3rem;
+            animation: floatUp 4s ease-in-out infinite;
+            position: absolute;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+                margin: 1rem;
+            }
+
+            h1, .welcome-title {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .memory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .music-controls {
+                top: 10px;
+                right: 10px;
+                padding: 8px 15px;
+            }
+        }
+
+        /* Typing effect */
+        .typing-text {
+            border-right: 2px solid #ff69b4;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #ff69b4; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating background elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <!-- Music controls -->
+    <div class="music-controls">
+        <button class="music-btn" id="musicToggle">🎵</button>
+        <span style="font-size: 0.9rem; color: #8b5cf6; margin-left: 10px;">Soft Music</span>
+    </div>
+
+    <!-- Page 1: Welcome -->
+    <div class="page active" id="page1">
+        <div class="container">
+            <h1 class="welcome-title">Happy Rakshabandhan</h1>
+            <h2 style="color: #ff69b4; margin: 1rem 0;">Didi Pratiksha! 🎀💖</h2>
+            <p style="font-size: 1.5rem; color: #8b5cf6;">
+                From your loving little brother Om 🥺✨
+            </p>
+            <div style="font-size: 4rem; margin: 2rem 0; animation: bounce 2s ease-in-out infinite;">
+                🌈💝🎉🩷🎀
+            </div>
+            <p style="color: #6b7280;">
+                I've prepared something very special for you, Didi! 
+                Get ready for a journey filled with love, memories, and surprises! 💌
+            </p>
+            <button class="next-btn" onclick="nextPage()">
+                Start the Magic ✨ →
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 2: Memory Gallery -->
+    <div class="page" id="page2">
+        <div class="container">
+            <h2>Our Beautiful Memories 📸💕</h2>
+            <p>Every moment with you is a treasure, Didi! 🥺💖</p>
+            
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="photo-frame">👫💕</div>
+                    <h3 style="color: #ff69b4; margin-bottom: 0.5rem;">Childhood Days</h3>
+                    <p style="font-size: 1rem;">Remember when you used to protect me from everything? You were my superhero! 🦸‍♀️✨</p>
+                </div>
+                
+                <div class="memory-card">
+                    <div class="photo-frame">🎂🎉</div>
+                    <h3 style="color: #8b5cf6; margin-bottom: 0.5rem;">Birthday Celebrations</h3>
+                    <p style="font-size: 1rem;">All those birthday surprises you planned for me... You made every day special! 🥳💝</p>
+                </div>
+                
+                <div class="memory-card">
+                    <div class="photo-frame">📚💪</div>
+                    <h3 style="color: #06b6d4; margin-bottom: 0.5rem;">Study Sessions</h3>
+                    <p style="font-size: 1rem;">Thank you for helping me with homework and being my study buddy! 🤓📖</p>
+                </div>
+                
+                <div class="memory-card">
+                    <div class="photo-frame">🍕🎮</div>
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">Fun Times</h3>
+                    <p style="font-size: 1rem;">Movie nights, games, and endless laughter... Those were the best times! 😄🎬</p>
+                </div>
+            </div>
+            
+            <button class="next-btn" onclick="nextPage()">
+                More Love Ahead 💕 →
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 3: Promise Wall -->
+    <div class="page" id="page3">
+        <div class="container">
+            <h2>My Promises to You 🤝💖</h2>
+            <p>These are not just words, but promises from my heart, Didi! 💝</p>
+            
+            <div class="promise-list">
+                <div class="promise-item">
+                    <h3 style="color: #ff69b4;">🛡️ I'll always be your shield</h3>
+                    <p>No matter how big I grow, I'll always protect you from any harm or sadness!</p>
+                </div>
+                
+                <div class="promise-item">
+                    <h3 style="color: #8b5cf6;">🌟 I'll make you proud</h3>
+                    <p>I promise to work hard and achieve great things so you can always be proud of your little brother!</p>
+                </div>
+                
+                <div class="promise-item">
+                    <h3 style="color: #06b6d4;">💝 I'll never forget your love</h3>
+                    <p>All the sacrifices you made for me, all the love you showered... I'll treasure it forever!</p>
+                </div>
+                
+                <div class="promise-item">
+                    <h3 style="color: #f59e0b;">🤗 I'll always be there</h3>
+                    <p>Whenever you need a shoulder to cry on or someone to share your happiness, I'll be right there!</p>
+                </div>
+                
+                <div class="promise-item">
+                    <h3 style="color: #10b981;">💕 I'll love you unconditionally</h3>
+                    <p>No distance, no time can ever change the love I have for my amazing sister!</p>
+                </div>
+            </div>
+            
+            <button class="next-btn" onclick="nextPage()">
+                Special Surprise 🎁 →
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 4: Gift Reveal -->
+    <div class="page" id="page4">
+        <div class="container">
+            <h2>A Special Gift for You! 🎁✨</h2>
+            <p>Click on the gift box to reveal your surprise, Didi! 🥺💖</p>
+            
+            <div class="gift-box" id="giftBox" onclick="revealGift()"></div>
+            
+            <div class="gift-content" id="giftContent">
+                <h3 style="color: #ff69b4; font-size: 2rem; margin-bottom: 1rem;">🌟 Your Gift is... 🌟</h3>
+                <div style="background: linear-gradient(135deg, #ffeef8, #e8f4fd); padding: 2rem; border-radius: 20px; margin: 1rem 0;">
+                    <h2 style="color: #8b5cf6;">A Promise of Forever Love! 💝</h2>
+                    <p style="font-size: 1.3rem; color: #6b7280; margin-top: 1rem;">
+                        My gift to you is not something material, but something eternal - 
+                        my unconditional love, respect, and gratitude that will last forever! 
+                        You are the best sister anyone could ask for! 🥺💕
+                    </p>
+                    <div style="font-size: 3rem; margin: 1rem 0;">
+                        💖🌈✨🎀🌟💝🥺💕
+                    </div>
+                </div>
+            </div>
+            
+            <button class="next-btn" onclick="nextPage()" id="giftNextBtn" style="display: none;">
+                Read My Letter 💌 →
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 5: Letter -->
+    <div class="page" id="page5">
+        <div class="container">
+            <div class="letter">
+                <div class="letter-header">
+                    <h2>💌 A Letter From My Heart 💌</h2>
+                    <p style="color: #8b5cf6; text-align: center;">To the most amazing sister in the world</p>
+                </div>
+                
+                <p><strong>My Dearest Didi Pratiksha,</strong></p>
+                
+                <p>As I sit down to write this letter, my heart is filled with so much love and gratitude for you. You are not just my sister, but my first friend, my protector, my guide, and my inspiration. 💕</p>
+                
+                <p>Do you remember how you used to tie rakhi on my wrist with so much love? How you would make sure I got the best sweets? How you would fight with anyone who dared to trouble your little brother? Those memories are the most precious treasures of my heart. 🥺💖</p>
+                
+                <p>You taught me what unconditional love means. You showed me how to be kind, how to be strong, and how to never give up. Every success in my life has your blessings behind it, every smile on my face has your love as its reason. 🌟</p>
+                
+                <p>On this Rakshabandhan, I want you to know that you are the best sister anyone could ever have. Your little brother has grown up, but my love and respect for you have only grown stronger. 💪💝</p>
+                
+                <p>Thank you for being my constant support, my cheerleader, and my best friend. I promise to always make you proud and to always be there for you, just like you've always been there for me. 🤗</p>
+                
+                <p style="text-align: center; margin-top: 2rem;"><strong>With all my love and warm hugs,<br>Your loving brother,<br>Om 🥺❤️</strong></p>
+                
+                <div style="text-align: center; font-size: 2rem; margin-top: 2rem;">
+                    💕🌈✨🎀💖🌟💝🥺
+                </div>
+            </div>
+            
+            <button class="next-btn" onclick="nextPage()">
+                Final Surprise 🎈 →
+            </button>
+        </div>
+    </div>
+
+    <!-- Page 6: Final Thank You -->
+    <div class="page" id="page6">
+        <div class="container">
+            <h1 style="color: #ff69b4; margin-bottom: 2rem;">Forever Your Om 🥺❤️</h1>
+            
+            <div style="font-size: 4rem; margin: 2rem 0; animation: bounce 2s ease-in-out infinite;">
+                🎈💕🌟✨🎀💖🌈
+            </div>
+            
+            <p style="font-size: 1.5rem; color: #8b5cf6; margin-bottom: 2rem;">
+                Thank you for being the most wonderful sister in the universe! 🌟
+            </p>
+            
+            <div style="background: rgba(255, 255, 255, 0.8); padding: 2rem; border-radius: 20px; margin: 2rem 0;">
+                <h3 style="color: #ff69b4; margin-bottom: 1rem;">This Rakshabandhan and Always...</h3>
+                <p style="font-size: 1.2rem; color: #6b7280;">
+                    May your life be filled with endless happiness, success, and love! 
+                    May all your dreams come true, and may you always have reasons to smile! 
+                    You deserve all the beautiful things in this world, Didi! 💝✨
+                </p>
+            </div>
+            
+            <div style="font-size: 3rem; margin: 2rem 0;">
+                🥺💕 I LOVE YOU SO MUCH DIDI! 💕🥺
+            </div>
+            
+            <button class="next-btn" onclick="restartJourney()" style="background: linear-gradient(135deg, #10b981, #06b6d4);">
+                Relive This Journey 🔄 💖
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 6;
+        let musicPlaying = false;
+
+        // Create floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const emojis = ['🎀', '💖', '🌟', '✨', '🩷', '🌈', '💝', '🎉'];
+            
+            // Create floating emojis
+            for (let i = 0; i < 15; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + '%';
+                emoji.style.top = Math.random() * 100 + '%';
+                emoji.style.animationDelay = Math.random() * 6 + 's';
+                container.appendChild(emoji);
+            }
+            
+            // Create confetti
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = ['#ff69b4', '#8b5cf6', '#06b6d4', '#f59e0b', '#10b981'][Math.floor(Math.random() * 5)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(confetti);
+            }
+        }
+
+        // Create heart balloons for final page
+        function createHeartBalloons() {
+            if (currentPage === 6) {
+                const container = document.getElementById('floatingElements');
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'heart-balloon';
+                        heart.textContent = ['💕', '💖', '💝', '🎈'][Math.floor(Math.random() * 4)];
+                        heart.style.left = Math.random() * 100 + '%';
+                        heart.style.animationDelay = '0s';
+                        container.appendChild(heart);
+                        
+                        setTimeout(() => {
+                            heart.remove();
+                        }, 4000);
+                    }, i * 500);
+                }
+            }
+        }
+
+        // Navigate to next page
+        function nextPage() {
+            if (currentPage < totalPages) {
+                document.getElementById(`page${currentPage}`).classList.remove('active');
+                currentPage++;
+                document.getElementById(`page${currentPage}`).classList.add('active');
+                
+                if (currentPage === 6) {
+                    createHeartBalloons();
+                }
+            }
+        }
+
+        // Restart journey
+        function restartJourney() {
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            currentPage = 1;
+            document.getElementById(`page${currentPage}`).classList.add('active');
+            
+            // Reset gift reveal
+            document.getElementById('giftContent').classList.remove('revealed');
+            document.getElementById('giftNextBtn').style.display = 'none';
+        }
+
+        // Reveal gift
+        function revealGift() {
+            document.getElementById('giftContent').classList.add('revealed');
+            document.getElementById('giftNextBtn').style.display = 'inline-block';
+            
+            // Add celebration effect
+            const giftBox = document.getElementById('giftBox');
+            giftBox.style.animation = 'bounce 0.5s ease-in-out 3';
+        }
+
+        // Music toggle (Note: Actual audio playback is not supported in this environment)
+        function toggleMusic() {
+            const btn = document.getElementById('musicToggle');
+            musicPlaying = !musicPlaying;
+            btn.textContent = musicPlaying ? '🎵' : '🔇';
+            btn.style.color = musicPlaying ? '#10b981' : '#8b5cf6';
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingElements();
+            
+            // Add music toggle functionality
+            document.getElementById('musicToggle').addEventListener('click', toggleMusic);
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    if (currentPage < totalPages) {
+                        nextPage();
+                    }
+                } else if (e.key === 'ArrowLeft') {
+                    if (currentPage > 1) {
+                        document.getElementById(`page${currentPage}`).classList.remove('active');
+                        currentPage--;
+                        document.getElementById(`page${currentPage}`).classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Add touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                // Swipe left - next page
+                if (currentPage < totalPages) {
+                    nextPage();
+                }
+            }
+            if (touchEndX > touchStartX + 50) {
+                // Swipe right - previous page
+                if (currentPage > 1) {
+                    document.getElementById(`page${currentPage}`).classList.remove('active');
+                    currentPage--;
+                    document.getElementById(`page${currentPage}`).classList.add('active');
+                }
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ac0b19c2d27ea9',t:'MTc1NDQ1NzE4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
